@@ -38,8 +38,7 @@ button{font:inherit}
 #langSeg button[lang=en]{font-family:'Rubik','Heebo',system-ui,sans-serif}
 .seg button:focus-visible,.ctl button:focus-visible,.ch:focus-visible{outline:2px solid #2E6BE6;outline-offset:2px}
 .intro{display:flex;flex-direction:column;align-items:center;text-align:center;margin:8px 0 18px}
-.eyebrow{font-size:14px;color:var(--pg-mute);margin:0 0 6px;width:100%}
-.intro h1{font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-.015em;line-height:1.12;margin:0 0 16px;width:100%}
+.eyebrow{font-size:14px;color:var(--pg-mute);margin:0 0 16px;width:100%}
 .sw{width:16px;height:16px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
 .sw-alma{background:conic-gradient(#F8865B 0 50%,#F3EFE6 50% 100%)}
 .sw-hand{background:conic-gradient(#1E1B18 0 50%,#F3EDE2 50% 100%)}
@@ -724,7 +723,6 @@ footer.foot .copy{direction:ltr;unicode-bidi:isolate}
 </header>
 <section class="intro">
 <p class="eyebrow bi" id="eyebrow"></p>
-<h1 class="bi" id="h1"></h1>
 <div class="seg" id="skinSeg" role="group">
 <button type="button" data-s="alma" aria-pressed="true"><i class="sw sw-alma"></i><span class="bi"></span></button>
 <button type="button" data-s="hand" aria-pressed="false"><i class="sw sw-hand"></i><span class="bi"></span></button>
@@ -1352,7 +1350,6 @@ function bi(el,he,en,tag='span'){el.innerHTML='<'+tag+' lang="he" dir="rtl">'+he
 function buildChrome(){
   const H=UI.he,E=UI.en;
   bi($('#eyebrow'),H.eyebrow.replace('{len}',H.len(String(totalMin('he')))),E.eyebrow.replace('{len}',E.len(String(totalMin('en')))));
-  bi($('#h1'),H.h1,E.h1);
   document.querySelectorAll('#skinSeg button').forEach(b=>bi(b.querySelector('.bi'),H.skins[b.dataset.s],E.skins[b.dataset.s]));
   bi(ov.querySelector('.l'),H.play+'<small>'+H.withSound+'</small>',E.play+'<small>'+E.withSound+'</small>');
   const nt=l=>'<h2>'+UI[l].notesTitle+'</h2><p>'+UI[l].notes+'</p>';
